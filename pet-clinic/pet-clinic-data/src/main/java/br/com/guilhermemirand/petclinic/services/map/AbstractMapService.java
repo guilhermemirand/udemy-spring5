@@ -14,7 +14,8 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
         } else if (object.getId() == null) {
             object.setId(this.getNextId());
         }
-        return this.map.put(object.getId(), object);
+        this.map.put(object.getId(), object);
+        return object;
     }
 
     T findById(ID id) {
@@ -25,12 +26,12 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
         return new HashSet<>(this.map.values());
     }
 
-    T deleteById(ID id) {
-        return this.map.remove(id);
+    void deleteById(ID id) {
+        this.map.remove(id);
     }
 
-    boolean delete(T object) {
-        return this.map.entrySet().removeIf(entry -> entry.getValue().equals(object));
+    void delete(T object) {
+        this.map.entrySet().removeIf(entry -> entry.getValue().equals(object));
     }
 
     private Long getNextId() {

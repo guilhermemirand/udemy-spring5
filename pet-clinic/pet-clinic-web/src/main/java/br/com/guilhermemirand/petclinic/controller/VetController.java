@@ -12,7 +12,7 @@ public class VetController {
     @Autowired
     private VetService vetService;
 
-    @RequestMapping({"/vets", "/vets/", "/vets/index", "/vets/index.html"})
+    @RequestMapping({"/vets", "/vets.html", "/vets/", "/vets/index", "/vets/index.html"})
     public String getAllVets(Model model) {
         model.addAttribute("vets", this.vetService.findAll());
         return "vets/index";
