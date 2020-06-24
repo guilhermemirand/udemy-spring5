@@ -16,6 +16,8 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+
+    @Lob
     private String directions;
 
     @Enumerated(value = EnumType.STRING)
@@ -29,6 +31,11 @@ public class Recipe {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
+
+    @ManyToMany
+    @JoinTable(name = "recipe_category", joinColumns = @JoinColumn(name = "recipe_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories;
 
     public Long getId() {
         return this.id;
@@ -124,5 +131,13 @@ public class Recipe {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public Set<Category> getCategories() {
+        return this.categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }
