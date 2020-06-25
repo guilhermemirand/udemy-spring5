@@ -2,14 +2,14 @@ package br.com.guilhermemirand.petclinic.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "visit")
 public class Visit extends BaseEntity {
 
-    @Temporal(value = TemporalType.TIMESTAMP)
     @Column(name = "date")
-    private LocalDate date;
+    private LocalDateTime date;
 
     @Column(name = "description")
     private String description;
@@ -18,11 +18,11 @@ public class Visit extends BaseEntity {
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return this.date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

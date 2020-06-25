@@ -4,11 +4,13 @@ import br.com.guilhermemirand.petclinic.model.Owner;
 import br.com.guilhermemirand.petclinic.services.OwnerService;
 import br.com.guilhermemirand.petclinic.services.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Autowired
