@@ -1,8 +1,16 @@
 package br.com.guilhermemirand.spring5recipe.domain;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@EqualsAndHashCode(of = {"id"})
 @Entity
 public class Ingredient {
 
@@ -18,44 +26,4 @@ public class Ingredient {
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMensure unitOfMensure;
 
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public BigDecimal getAmount() {
-        return this.amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public Recipe getRecipe() {
-        return this.recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    public UnitOfMensure getUnitOfMensure() {
-        return this.unitOfMensure;
-    }
-
-    public void setUnitOfMensure(UnitOfMensure unitOfMensure) {
-        this.unitOfMensure = unitOfMensure;
-    }
 }
