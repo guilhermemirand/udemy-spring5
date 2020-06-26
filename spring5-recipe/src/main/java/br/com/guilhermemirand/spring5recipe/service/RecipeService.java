@@ -20,4 +20,8 @@ public class RecipeService {
         this.recipeRepository.findAll().forEach(recipes::add);
         return recipes;
     }
+
+    public Recipe findById(Long id) {
+        return this.recipeRepository.findById(id).orElse(null);
+    }
 }

@@ -2,7 +2,6 @@ package br.com.guilhermemirand.spring5recipe.bootstrap;
 
 import br.com.guilhermemirand.spring5recipe.domain.*;
 import br.com.guilhermemirand.spring5recipe.repository.CategoryRepository;
-import br.com.guilhermemirand.spring5recipe.repository.IngredientRepository;
 import br.com.guilhermemirand.spring5recipe.repository.RecipeRepository;
 import br.com.guilhermemirand.spring5recipe.repository.UnitOfMensureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +38,7 @@ public class RecipeBootstrap implements CommandLineRunner {
                 .servings(6)
                 .prepTime(15)
                 .url("https://www.simplyrecipes.com/recipes/peperonata/")
+                .urlImage("https://www.simplyrecipes.com/wp-content/uploads/2010/09/pereronata-vertical-a-1200-600x870.jpg")
                 .ingredients(new HashSet<>())
                 .directions("1 Sauté the onions: Heat olive oil in a large sauté pan on medium high heat. When the oil is shimmering, add the onions. Sprinkle with a little salt and sauté for 2-3 minutes, until the onions just begin to color.\n" +
                         "2 Add the peppers: Add the peppers and stir well to combine with the onions. Sauté for 4-5 minutes, stirring often. The peppers should be al dente—cooked, but with a little crunch left in them.\n" +
@@ -144,7 +144,7 @@ public class RecipeBootstrap implements CommandLineRunner {
                 .build();
         peperonata.getIngredients().add(lemonJuice);
 
-        Notes notes = Notes.builder().recipe(peperonata).recipeNotes("Peperonata recipes come in many versions; some get cooked a good long time, some get cooked with potatoes, or without tomatoes. This dish is certainly open-for-improvisation!").build();
+        Notes notes = Notes.builder().recipe(peperonata).recipeNotes("Peperonata or Sautéed Peppers and Onions - Italian bell pepper, onion, tomato sauté, with garlic, ground oregano, and fresh basil. An easy summer side dish.").build();
         peperonata.setNotes(notes);
         this.recipeRepository.save(peperonata);
     }
@@ -158,6 +158,7 @@ public class RecipeBootstrap implements CommandLineRunner {
                 .servings(2)
                 .prepTime(1)
                 .url("https://www.simplyrecipes.com/recipes/how_to_make_an_omelet/")
+                .urlImage("https://www.simplyrecipes.com/wp-content/uploads/2018/10/HT-Make-an-Omelet-LEAD-VERTICAL-600x840.jpg")
                 .ingredients(new HashSet<>())
                 .directions("1. Beat the eggs: Use two or three eggs per omelette, depending on how hungry you are. Beat the eggs lightly with a fork.\n" +
                         "2. Melt the butter: Use an 8-inch nonstick skillet for a 2-egg omelette, a 9-inch skillet for 3 eggs. Melt the butter over medium-low heat, and keep the temperature low and slow when cooking the eggs so the bottom doesn’t get too brown or overcooked.\n" +
@@ -182,7 +183,7 @@ public class RecipeBootstrap implements CommandLineRunner {
                 .recipe(omelettes)
                 .build();
 
-        Notes notes = Notes.builder().recipe(omelettes).recipeNotes("Channel your inner elegant French cook and don’t overstuff the omelette! You should have enough filling to make the omelette tasty, but not so much that it’s bursting and spilling out of the eggs. With practice, you will be able to eyeball how much to put in the omelette.").build();
+        Notes notes = Notes.builder().recipe(omelettes).recipeNotes("Never fear! Making an omelette at home is not difficult. With a few basic steps and a flip of the wrist you can pull this off in minutes. Fill it with whatever you have on hand—it's a great way to use up leftovers!").build();
 
         omelettes.getIngredients().add(eggs);
         omelettes.getIngredients().add(butter);

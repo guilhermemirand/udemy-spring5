@@ -24,6 +24,7 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+    private String urlImage;
 
     @Lob
     private String directions;
